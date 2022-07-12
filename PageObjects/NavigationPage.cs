@@ -10,24 +10,20 @@ namespace Amazon.PageObjects
 {
     public class NavigationPagePage
     {
-        public IWebDriver driver;
-
         private By homePageCart = By.CssSelector("a[id='nav-cart']");
         private By clickonAmazonLogo = By.XPath("//div[@id='nav-logo']/a");
-        private By cScroll = By.XPath("//div[@class='navFooterLine']");
+        private By cScroll = By.XPath("//div[@class='NavigationPage']");
         private By selectLang = By.XPath("//a[@id='icp-touch-link-language']");
         //private By selectLanguage = By.XPath("//div[@class='navFooterLine']/a[@id='icp-touch-link-language']");
 
+        private IWebDriver driver;
 
-        public NavigationPagePage(IWebDriver driver)
-
+        public NavigationPage(IWebDriver driver)
         {
             this.driver = driver;
-
         }
-
+        
         public void backToCart()
-
         {
             Thread.Sleep(3000);
             driver.FindElement(homePageCart).Click();
