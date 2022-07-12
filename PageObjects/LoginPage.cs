@@ -9,16 +9,14 @@ namespace Amazon.PageObjects
 {
     public class LoginPage
     {
-        private IWebDriver driver;
         private By userName = By.CssSelector("#ap_email");
         private By clickoncontinue = By.XPath("//input[@id='continue']");
         private By password = By.CssSelector("#ap_password");
         private By signinButton = By.CssSelector("#signInSubmit");
         private By action = By.XPath("//div[@id='nav-tools']/a[2]");
+
+        private IWebDriver driver;
     
-
-        
-
         public LoginPage(IWebDriver driver)
             {
              this.driver = driver;
@@ -45,7 +43,5 @@ namespace Amazon.PageObjects
         {
             driver.FindElement(signinButton).Click();
         }
-
-       
     }
 }

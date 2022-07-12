@@ -11,11 +11,11 @@ namespace Amazon.PageObjects
 {
    public  class LanguageSettingPage
     {
-        private IWebDriver driver;
-
         private By checkoutRadioButton = By.XPath("//div[@class='a-radio a-radio-fancy']/label/input[@value='kn_IN']");
         private By clickonCancel = By.XPath("//span[contains(@class,'a-button-inner')]/a[@class='a-button-text']");
      
+        private IWebDriver driver;
+
         public LanguageSettingPage(IWebDriver driver)
         {
             this.driver = driver;
@@ -25,8 +25,6 @@ namespace Amazon.PageObjects
         {
             Actions a2 = new Actions(driver);
             a2.MoveToElement(driver.FindElement(checkoutRadioButton)).Click().Perform();
-
-
 
             /*     IList<IWebElement> rdos = driver.FindElements(checkoutRadioButton);
 
