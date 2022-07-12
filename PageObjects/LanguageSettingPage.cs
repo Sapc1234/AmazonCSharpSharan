@@ -24,8 +24,10 @@ namespace Amazon.PageObjects
         public void radioButton()
         {
             Actions a2 = new Actions(driver);
+            
             a2.MoveToElement(driver.FindElement(checkoutRadioButton)).Click().Perform();
 
+            
             /*     IList<IWebElement> rdos = driver.FindElements(checkoutRadioButton);
 
                    foreach (IWebElement radiosButton in rdos)
