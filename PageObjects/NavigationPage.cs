@@ -8,7 +8,7 @@ using System.Threading;
 
 namespace Amazon.PageObjects
 {
-    public class NavigationPagePage
+    public class NavigationPage
     {
         private By homePageCart = By.CssSelector("a[id='nav-cart']");
         private By clickonAmazonLogo = By.XPath("//div[@id='nav-logo']/a");
@@ -18,7 +18,7 @@ namespace Amazon.PageObjects
 
         private IWebDriver driver;
         
-        public void NavigationPage(IWebDriver driver)
+        public  NavigationPage(IWebDriver driver)
         {
             this.driver = driver;
         }

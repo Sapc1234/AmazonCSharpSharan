@@ -59,7 +59,7 @@ namespace Amazon
         public void goBackToCart()
 
         {
-            NavigationPagePage np = new NavigationPagePage(getDriver());
+            NavigationPage np = new NavigationPage(getDriver());
             np.backToCart();
             np.footer();
             Assert.IsTrue(driver.FindElement(By.CssSelector("a[id='nav-cart']")).Enabled);
