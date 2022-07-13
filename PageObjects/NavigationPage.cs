@@ -17,8 +17,8 @@ namespace Amazon.PageObjects
         //private By selectLanguage = By.XPath("//div[@class='navFooterLine']/a[@id='icp-touch-link-language']");
 
         private IWebDriver driver;
-
-        public NavigationPage(IWebDriver driver)
+        
+        public void NavigationPage(IWebDriver driver)
         {
             this.driver = driver;
         }
