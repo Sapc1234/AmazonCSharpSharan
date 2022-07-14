@@ -40,7 +40,7 @@ namespace Amazon.PageObjects
                    }      */
 
             Thread.Sleep(5000);
-           // driver.FindElement(clickonCancel).Click();
+            driver.FindElement(clickonCancel).Click();
         }
     }
 }
