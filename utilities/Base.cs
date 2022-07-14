@@ -30,14 +30,16 @@ namespace Amazon.utilities
 
         {
             string workingDirectory = Environment.CurrentDirectory;
+            //if you want to create one new folder inside the project itself
             string projectDirectory = Directory.GetParent(workingDirectory).Parent.Parent.FullName;
-            String reportPath = projectDirectory + "//index.html";
+            String reportPath = projectDirectory + "//reports//index.html";
             var htmlReporter = new ExtentHtmlReporter(reportPath);
+            //ExtenhtmlReporter class expects a path where your report should be created and ExtentHtmlReporter basically responsible for craeting report
             extent = new ExtentReports();
             extent.AttachReporter(htmlReporter);
             extent.AddSystemInfo("Host Name", "Local host");
             extent.AddSystemInfo("Environment", "QA");
-            extent.AddSystemInfo("Username", "sharan Padashetty");
+            extent.AddSystemInfo("Tester", "sharan Padashetty");
 
         }
         [SetUp]
