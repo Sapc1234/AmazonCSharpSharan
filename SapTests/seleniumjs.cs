@@ -13,7 +13,8 @@ namespace Amazon.SapTests
     public  class seleniumjs
     {
         public IWebDriver driver;
-        [OneTimeSetUp]
+        //public ThreadLocal<IWebDriver> driver = new ThreadLocal<IWebDriver>();
+        [SetUp]
         public void oprnBrowser()
 
         {
@@ -25,8 +26,8 @@ namespace Amazon.SapTests
 
         }
 
-        [Test, Order(1)]
-
+        [Test]
+        
         public void JsDemo()
         {
             IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
@@ -49,7 +50,7 @@ namespace Amazon.SapTests
             Assert.AreEqual(sum, total);
         }
 
-        [Test,Order(2)]
+        [Test]
         public void printstheRowsandColumn()
 
         {
