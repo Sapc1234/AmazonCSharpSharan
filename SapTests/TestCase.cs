@@ -177,14 +177,5 @@ namespace Amazon
 
             }
         }
-
-        //driver.FindElement(By.XPath("//input[@name='submit.delete.C92499178-c959-49f6-afd5-5a94424eaa3a']")).Click();
-        //submit.delete.C92499178-c959-49f6-afd5-5a94424eaa3a
-
-        // String confirText = driver.FindElement(By.XPath("//div[@class='a-section a-spacing-mini sc-list-body sc-java-remote-feature']//div[2]")).Text;
-
-        //TestContext.Progress.WriteLine(confirText);
-
-        //StringAssert.Contains("Samsung Galaxy M53 5G (Mystique Green, 6GB, 128GB Storage) | 108... was removed from Shopping Cart.", confirText);
     }
 }
