@@ -23,16 +23,15 @@ namespace Amazon.utilities
         public ExtentReports extent;
         public ExtentTest test;
         public IWebDriver driver;
-
+        
         [OneTimeSetUp]
-
         public void Setup()
 
         {
             string workingDirectory = Environment.CurrentDirectory;
             //here utility is our working Directory
             string projectDirectory = Directory.GetParent(workingDirectory).Parent.Parent.FullName;
-            String reportPath = projectDirectory + "//reports//index.html";
+            String reportPath = projectDirectory + "//Extentreports//Amazon.html";
             //if you want to create one new folder inside the project itself
             var htmlReporter = new ExtentHtmlReporter(reportPath);
             //ExtenhtmlReporter class expects a path where your report should be created and ExtentHtmlReporter basically responsible for craeting report
@@ -47,7 +46,7 @@ namespace Amazon.utilities
         public void extentSetup()
 
         {
-            test = extent.CreateTest(TestContext.CurrentContext.Test.Name);
+            test = extent.CreateTest(TestContext.CurrentContext.Test.Name).Info("Test Started");
         }
 
         [OneTimeSetUp]
@@ -59,16 +58,13 @@ namespace Amazon.utilities
             //InitBrowser("chrome");
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
             driver.Manage().Window.Maximize();
+            //test.Log(Status.Info, "Amazon");
             driver.Url = "https://www.amazon.in/";
-           
             
             String ActualResult;
             String ExpectedResult = "amazon";
-
             ActualResult = driver.Url;
-
             if(ActualResult.Contains(ExpectedResult))
-
             {
                 TestContext.Progress.WriteLine("Setup is Passed");
             }
@@ -77,8 +73,7 @@ namespace Amazon.utilities
             {
                 TestContext.Progress.WriteLine("Setup is not Passeed");
             }
-
-         Assert.IsTrue(driver.Url.Contains("amazon"));
+            Assert.IsTrue(driver.Url.Contains("amazon"));
 
         }
         public  IWebDriver getDriver()
@@ -109,14 +104,12 @@ namespace Amazon.utilities
         }
 
         [TearDown]
-
-        public void extentEnd()
+        public void extentClose()
 
         {
-            //this will give the test is pass or fail
+          /*  //this will give the test is pass or fail
             var status = TestContext.CurrentContext.Result.Outcome.Status;
-            var stackTrace = TestContext.CurrentContext.Result.StackTrace;
-
+            //var stackTrace = TestContext.CurrentContext.Result.StackTrace;
             DateTime time = DateTime.Now;
             String fileName = "Screenshot_" + time.ToString("h_mm_ss") + ".png";
 
@@ -124,19 +117,19 @@ namespace Amazon.utilities
             {
 
                 test.Fail("Test failed", takeScreenShot(driver, fileName));
-                test.Log(Status.Fail, "test failed with logtrace" + stackTrace);
+                //test.Log(Status.Fail, "test failed with logtrace" + stackTrace);
                 //all the failure o/p stack stored in the log file
+                test.Log(Status.Fail,"Test Fail");
             }
             else if (status == TestStatus.Passed)
             {
-                test.Pass("Test Passed");
-            }
+                
+            }*/
 
             extent.Flush();
             //It releases all the objects & it will freshly create next time when  u run ur whole framework
         }
        
-            
         [OneTimeTearDown]
         public void AfterTest()
         {
