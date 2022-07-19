@@ -74,7 +74,7 @@ namespace Amazon.SapTests
         public void closeBrowser()
 
         {
-            driver.Close();
+            driver.Quit();
         }
     }
 }
