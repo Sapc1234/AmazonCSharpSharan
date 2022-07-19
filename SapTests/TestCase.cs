@@ -12,14 +12,12 @@ using WebDriverManager.DriverConfigs.Impl;
 
 namespace Amazon
 {
-  
     public class Tests : Base
     {
         [Test, Order(1)]
         [TestCase("sapadashetty2110@gmail.com", "Sapc@5678")]
         //[TestCase("sapdashetty2110@gmail.com","Sapc@5678")]
 
-    
         public void validLoginCredential(String UsrName, String Password)
         {
             try
@@ -67,11 +65,9 @@ namespace Amazon
                 String trimmedAText = splittedText[0].Trim();
                 // Assert.AreEqual("Samsung Galaxy M53 5G", trimmedAText);
                 test.Log(Status.Pass, "Test Passed Successfully");
-
             }
 
             catch (Exception e)
-
             {
                 test.Log(Status.Fail, e.Message);
                 DateTime time = DateTime.Now;
@@ -99,7 +95,6 @@ namespace Amazon
             }
 
             catch (Exception e)
-
             {
                 test.Log(Status.Fail, e.Message);
                 DateTime time = DateTime.Now;
@@ -120,11 +115,9 @@ namespace Amazon
                 test.Log(Status.Info, "webPage scrollDown Successfully");
                 Assert.IsTrue(driver.FindElement(By.CssSelector("a[id='nav-cart']")).Enabled);
                 test.Log(Status.Pass, "Test Passed Successfully");
-
             }
 
             catch (Exception e)
-
             {
                 test.Log(Status.Fail, e.Message);
                 DateTime time = DateTime.Now;
@@ -147,7 +140,6 @@ namespace Amazon
             }
 
             catch(Exception e)
-
             {
                 test.Log(Status.Fail, e.Message);
                 DateTime time = DateTime.Now;
@@ -155,8 +147,8 @@ namespace Amazon
                 test.Fail("Test failed", takeScreenShot(driver, fileName));
             }
         }
-        [Test,Order(6)]
 
+        [Test,Order(6)]
         public void clickOnsignOutButtons()
         {
             try
@@ -168,13 +160,11 @@ namespace Amazon
             }
 
             catch (Exception e)
-
             {
                 test.Log(Status.Fail, e.Message);
                 DateTime time = DateTime.Now;
                 String fileName = "Screenshot_" + time.ToString("h_mm_ss") + ".png";
                 test.Fail("Test failed", takeScreenShot(driver, fileName));
-
             }
         }
     }
