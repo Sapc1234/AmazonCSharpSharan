@@ -12,7 +12,7 @@ using WebDriverManager.DriverConfigs.Impl;
 
 namespace Amazon
 {
-    [TestFixture]
+  
     public class Tests : Base
     {
         [Test, Order(1)]
