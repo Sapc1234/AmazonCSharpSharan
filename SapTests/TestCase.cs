@@ -77,6 +77,14 @@ namespace Amazon
             Assert.IsTrue(driver.FindElement(By.XPath("//div[@class='a-radio a-radio-fancy']/label/input[@value='kn_IN']")).Selected);
         }
 
+        [Test,Order(6)]
+
+        public void clickOnsignOutButtons()
+        {
+            LogoutPage lo = new LogoutPage(getDriver());
+            lo.pointerMovesHoverAccountandList();
+        }
+
         //driver.FindElement(By.XPath("//input[@name='submit.delete.C92499178-c959-49f6-afd5-5a94424eaa3a']")).Click();
         //submit.delete.C92499178-c959-49f6-afd5-5a94424eaa3a
 

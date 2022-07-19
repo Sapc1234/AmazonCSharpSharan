@@ -30,9 +30,10 @@ namespace Amazon.utilities
 
         {
             string workingDirectory = Environment.CurrentDirectory;
-            //if you want to create one new folder inside the project itself
+            //here utility is our working Directory
             string projectDirectory = Directory.GetParent(workingDirectory).Parent.Parent.FullName;
             String reportPath = projectDirectory + "//reports//index.html";
+            //if you want to create one new folder inside the project itself
             var htmlReporter = new ExtentHtmlReporter(reportPath);
             //ExtenhtmlReporter class expects a path where your report should be created and ExtentHtmlReporter basically responsible for craeting report
             extent = new ExtentReports();
@@ -53,8 +54,8 @@ namespace Amazon.utilities
         public void StartBrowser()
         {
           
-            String browserName = ConfigurationManager.AppSettings["browser"];
-            InitBrowser(browserName);
+            String BrowserName = ConfigurationManager.AppSettings["browser"];
+            InitBrowser(BrowserName);
             //InitBrowser("chrome");
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
             driver.Manage().Window.Maximize();
@@ -112,6 +113,7 @@ namespace Amazon.utilities
         public void extentEnd()
 
         {
+            //this will give the test is pass or fail
             var status = TestContext.CurrentContext.Result.Outcome.Status;
             var stackTrace = TestContext.CurrentContext.Result.StackTrace;
 
@@ -123,14 +125,15 @@ namespace Amazon.utilities
 
                 test.Fail("Test failed", takeScreenShot(driver, fileName));
                 test.Log(Status.Fail, "test failed with logtrace" + stackTrace);
-
+                //all the failure o/p stack stored in the log file
             }
             else if (status == TestStatus.Passed)
             {
-
+                test.Pass("Test Passed");
             }
 
             extent.Flush();
+            //It releases all the objects & it will freshly create next time when  u run ur whole framework
         }
        
             
