@@ -22,16 +22,17 @@ namespace Amazon.utilities
     {
         public ExtentReports extent;
         public ExtentTest test;
-        public IWebDriver driver;
-        
+        //public IWebDriver driver;
+        public ThreadLocal<IWebDriver> driver = new ThreadLocal<IWebDriver>();
+        //threadLocal class maintain all drivers 
         [OneTimeSetUp]
         public void Setup()
 
         {
             string workingDirectory = Environment.CurrentDirectory;
-            //here utility is our working Directory
+           
             string projectDirectory = Directory.GetParent(workingDirectory).Parent.Parent.FullName;
-            String reportPath = projectDirectory + "//Extentreports//Amazon.html";
+            String reportPath = projectDirectory + "//Extentreports/Amazon.html";
             //if you want to create one new folder inside the project itself
             var htmlReporter = new ExtentHtmlReporter(reportPath);
             //ExtenhtmlReporter class expects a path where your report should be created and ExtentHtmlReporter basically responsible for craeting report
@@ -56,14 +57,14 @@ namespace Amazon.utilities
             String BrowserName = ConfigurationManager.AppSettings["browser"];
             InitBrowser(BrowserName);
             //InitBrowser("chrome");
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
-            driver.Manage().Window.Maximize();
+            driver.Value.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
+            driver.Value.Manage().Window.Maximize();
             //test.Log(Status.Info, "Amazon");
-            driver.Url = "https://www.amazon.in/";
+            driver.Value.Url = "https://www.amazon.in/";
             
             String ActualResult;
             String ExpectedResult = "amazon";
-            ActualResult = driver.Url;
+            ActualResult = driver.Value.Url;
             if(ActualResult.Contains(ExpectedResult))
             {
                 TestContext.Progress.WriteLine("Setup is Passed");
@@ -73,13 +74,13 @@ namespace Amazon.utilities
             {
                 TestContext.Progress.WriteLine("Setup is not Passeed");
             }
-            Assert.IsTrue(driver.Url.Contains("amazon"));
+            Assert.IsTrue(driver.Value.Url.Contains("amazon"));
 
         }
         public  IWebDriver getDriver()
 
         {
-            return driver;
+            return driver.Value;
         }
         public void InitBrowser(String browserName)
         {
@@ -88,17 +89,17 @@ namespace Amazon.utilities
             {
                 case "Firefox":
                     new WebDriverManager.DriverManager().SetUpDriver(new FirefoxConfig());
-                    driver = new FirefoxDriver();
+                    driver.Value = new FirefoxDriver();
                     break;
 
                 case "Chrome":
                     new WebDriverManager.DriverManager().SetUpDriver(new ChromeConfig());
-                    driver = new ChromeDriver();
+                    driver.Value = new ChromeDriver();
                     break;
 
                 case "Edge":
                     new WebDriverManager.DriverManager().SetUpDriver(new EdgeConfig());
-                    driver = new EdgeDriver();
+                    driver.Value = new EdgeDriver();
                     break;
             }
         }
@@ -134,7 +135,7 @@ namespace Amazon.utilities
         public void AfterTest()
         {
            
-            driver.Quit();
+            driver.Value.Quit();
         }
 
 
