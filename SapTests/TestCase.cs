@@ -13,7 +13,7 @@ using WebDriverManager.DriverConfigs.Impl;
 
 namespace Amazon
 {
-    
+    [Parallelizable(ParallelScope.Self)]
     public class Tests : Base
     {
         [Test, Order(1)]

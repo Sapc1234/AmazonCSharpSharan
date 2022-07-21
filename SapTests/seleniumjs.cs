@@ -53,7 +53,6 @@ namespace Amazon.SapTests
 
         [Test]
         public void printstheRowsandColumn()
-
         {
             IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
             js.ExecuteScript("window.scrollBy(0,400);");
@@ -64,16 +63,13 @@ namespace Amazon.SapTests
             Console.WriteLine(table.FindElements(By.TagName("tr"))[0].FindElements(By.TagName("th")).Count);
 
             IList<IWebElement> secondrow = driver.FindElements(By.TagName("tr"))[2].FindElements(By.TagName("td"));
-
             Console.WriteLine(secondrow[0].Text);
             Console.WriteLine(secondrow[1].Text);
             Console.WriteLine(secondrow[2].Text);
         }
 
         [TearDown]
-
         public void closeBrowser()
-
         {
             driver.Quit();
         }

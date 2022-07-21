@@ -18,7 +18,7 @@ using WebDriverManager.DriverConfigs.Impl;
 
 namespace Amazon.utilities
 {
-    [Parallelizable(ParallelScope.Self)]
+    
     public class Base
     {
         public ExtentReports extent;
