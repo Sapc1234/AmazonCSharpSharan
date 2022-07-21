@@ -10,6 +10,7 @@ using WebDriverManager.DriverConfigs.Impl;
 
 namespace Amazon.SapTests
 {
+    [Parallelizable(ParallelScope.Self)]
     public  class seleniumjs
     {
         public IWebDriver driver;

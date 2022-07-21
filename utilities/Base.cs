@@ -18,6 +18,7 @@ using WebDriverManager.DriverConfigs.Impl;
 
 namespace Amazon.utilities
 {
+    [Parallelizable(ParallelScope.Self)]
     public class Base
     {
         public ExtentReports extent;
@@ -30,7 +31,7 @@ namespace Amazon.utilities
 
         {
             string workingDirectory = Environment.CurrentDirectory;
-           
+            //here our working Directory is Utilities
             string projectDirectory = Directory.GetParent(workingDirectory).Parent.Parent.FullName;
             String reportPath = projectDirectory + "//Extentreports/Amazon.html";
             //if you want to create one new folder inside the project itself
@@ -41,11 +42,9 @@ namespace Amazon.utilities
             extent.AddSystemInfo("Host Name", "Local host");
             extent.AddSystemInfo("Environment", "QA");
             extent.AddSystemInfo("Tester", "sharan Padashetty");
-
         }
         [SetUp]
         public void extentSetup()
-
         {
             test = extent.CreateTest(TestContext.CurrentContext.Test.Name).Info("Test Started");
         }
@@ -53,7 +52,6 @@ namespace Amazon.utilities
         [OneTimeSetUp]
         public void StartBrowser()
         {
-          
             String BrowserName = ConfigurationManager.AppSettings["browser"];
             InitBrowser(BrowserName);
             //InitBrowser("chrome");
@@ -78,7 +76,6 @@ namespace Amazon.utilities
 
         }
         public  IWebDriver getDriver()
-
         {
             return driver.Value;
         }
@@ -134,19 +131,14 @@ namespace Amazon.utilities
         [OneTimeTearDown]
         public void AfterTest()
         {
-           
             driver.Value.Quit();
         }
 
-
         public MediaEntityModelProvider takeScreenShot(IWebDriver driver, String screenShotName)
-
         {
             ITakesScreenshot ts = (ITakesScreenshot)driver;
             var screenshot = ts.GetScreenshot().AsBase64EncodedString;
-
-            return MediaEntityBuilder.CreateScreenCaptureFromBase64String(screenshot, screenShotName).Build();
-
+            return MediaEntityBuilder.CreateScreenCaptureFromBase64String(screenshot,screenShotName).Build();
         }
 
     }
