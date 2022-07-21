@@ -2,6 +2,7 @@ using Amazon.PageObjects;
 using Amazon.utilities;
 using AventStack.ExtentReports;
 using NUnit.Framework;
+using NUnit.Framework.Interfaces;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Interactions;
@@ -39,10 +40,10 @@ namespace Amazon
             catch(Exception e)
 
             {
-                test.Log(Status.Fail, e.Message);
                 DateTime time = DateTime.Now;
                 String fileName = "Screenshot_" + time.ToString("h_mm_ss") + ".png";
                 test.Fail("Test failed", takeScreenShot(driver.Value, fileName));
+                test.Log(Status.Fail, e.Message);
             }
         }
 
@@ -52,28 +53,24 @@ namespace Amazon
             try
             {
                 ProductSearch ps = new ProductSearch(getDriver());
-
                 ps.searchItem("Samsung Galaxy M53 5G");
-
                 test.Log(Status.Info, "Item Search Successfully");
-
                 ps.clickOnSearchbutton();
-
                 test.Log(Status.Info, "pointer click on searchButton");
-
                 String atext = ps.getText().Text;
                 String[] splittedText = atext.Split("(");
                 String trimmedAText = splittedText[0].Trim();
                 // Assert.AreEqual("Samsung Galaxy M53 5G", trimmedAText);
+                //var status = TestContext.CurrentContext.Result.Outcome.Status;
                 test.Log(Status.Pass, "Test Passed Successfully");
             }
 
             catch (Exception e)
             {
-                test.Log(Status.Fail, e.Message);
                 DateTime time = DateTime.Now;
                 String fileName = "Screenshot_" + time.ToString("h_mm_ss") + ".png";
                 test.Fail("Test failed", takeScreenShot(driver.Value, fileName));
+                test.Log(Status.Fail, e.Message);
             }
         }
        
@@ -97,10 +94,10 @@ namespace Amazon
 
             catch (Exception e)
             {
-                test.Log(Status.Fail, e.Message);
                 DateTime time = DateTime.Now;
                 String fileName = "Screenshot_" + time.ToString("h_mm_ss") + ".png";
                 test.Fail("Test failed", takeScreenShot(driver.Value, fileName));
+                test.Log(Status.Fail, e.Message);
             }
         }
 
@@ -120,10 +117,10 @@ namespace Amazon
 
             catch (Exception e)
             {
-                test.Log(Status.Fail, e.Message);
                 DateTime time = DateTime.Now;
                 String fileName = "Screenshot_" + time.ToString("h_mm_ss") + ".png";
                 test.Fail("Test failed", takeScreenShot(driver.Value, fileName));
+                test.Log(Status.Fail, e.Message);
             }
         }
 
@@ -142,10 +139,10 @@ namespace Amazon
 
             catch(Exception e)
             {
-                test.Log(Status.Fail, e.Message);
                 DateTime time = DateTime.Now;
                 String fileName = "Screenshot_" + time.ToString("h_mm_ss") + ".png";
                 test.Fail("Test failed", takeScreenShot(driver.Value, fileName));
+                test.Log(Status.Fail, e.Message);
             }
         }
 
@@ -162,10 +159,10 @@ namespace Amazon
 
             catch (Exception e)
             {
-                test.Log(Status.Fail, e.Message);
                 DateTime time = DateTime.Now;
                 String fileName = "Screenshot_" + time.ToString("h_mm_ss") + ".png";
                 test.Fail("Test failed", takeScreenShot(driver.Value, fileName));
+                test.Log(Status.Fail, e.Message);
             }
         }
     }
