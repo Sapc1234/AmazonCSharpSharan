@@ -20,7 +20,7 @@ namespace Amazon.PageObjects
             this.driver = driver;
         }
        
-        public void searchItem(String Items)
+        public void SearchItem(String Items)
         {
             driver.FindElement(searchBox).SendKeys(Items);
         }
@@ -30,7 +30,7 @@ namespace Amazon.PageObjects
             return driver.FindElement(compareText);
         }
        
-        public void clickOnSearchbutton()
+        public void ClickOnSearchButton()
         {
             driver.FindElement(clickonSearchButton).Click();
         }

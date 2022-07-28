@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.32602.291
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Amazon", "Amazon.csproj", "{58006652-5D5E-4F4A-820B-CE91B994E417}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataDrivenFromExcel", "..\DataDrivenFromExcel\DataDrivenFromExcel.csproj", "{1CA27057-3F06-42EB-A38A-340A07EB46A5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{58006652-5D5E-4F4A-820B-CE91B994E417}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{58006652-5D5E-4F4A-820B-CE91B994E417}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{58006652-5D5E-4F4A-820B-CE91B994E417}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CA27057-3F06-42EB-A38A-340A07EB46A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CA27057-3F06-42EB-A38A-340A07EB46A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CA27057-3F06-42EB-A38A-340A07EB46A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CA27057-3F06-42EB-A38A-340A07EB46A5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

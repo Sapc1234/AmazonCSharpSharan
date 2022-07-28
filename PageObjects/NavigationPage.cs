@@ -14,7 +14,6 @@ namespace Amazon.PageObjects
         private By clickonAmazonLogo = By.XPath("//div[@id='nav-logo']/a");
         private By cScroll = By.XPath("//div[@class='navFooterLine']");
         private By selectLang = By.XPath("//a[@id='icp-touch-link-language']");
-        //private By selectLanguage = By.XPath("//div[@class='navFooterLine']/a[@id='icp-touch-link-language']");
 
         private IWebDriver driver;
         
