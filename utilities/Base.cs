@@ -27,13 +27,13 @@ namespace Amazon.utilities
         public ThreadLocal<IWebDriver> driver = new ThreadLocal<IWebDriver>();
         //threadLocal class maintain all drivers 
         [OneTimeSetUp]
-        public void Setup()
+        public void ExtentStart()
 
         {
             string workingDirectory = Environment.CurrentDirectory;
             //here our working Directory is Utilities
             string projectDirectory = Directory.GetParent(workingDirectory).Parent.Parent.FullName;
-            String reportPath = projectDirectory + "//Extentreports/Amazon.html";
+            String reportPath = projectDirectory + "//Extentreports/index.html";
             //if you want to create one new folder inside the project itself
             var htmlReporter = new ExtentHtmlReporter(reportPath);
             //ExtenhtmlReporter class expects a path where your report should be created and ExtentHtmlReporter basically responsible for craeting report
@@ -44,7 +44,7 @@ namespace Amazon.utilities
             extent.AddSystemInfo("Tester", "sharan Padashetty");
         }
         [SetUp]
-        public void extentSetup()
+        public void ExtentSetup()
         {
             test = extent.CreateTest(TestContext.CurrentContext.Test.Name).Info("Test Started");
         }
@@ -57,7 +57,6 @@ namespace Amazon.utilities
             //InitBrowser("chrome");
             driver.Value.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
             driver.Value.Manage().Window.Maximize();
-            //test.Log(Status.Info, "Amazon");
             driver.Value.Url = "https://www.amazon.in/";
             
             String ActualResult;
@@ -102,28 +101,25 @@ namespace Amazon.utilities
         }
 
         [TearDown]
-        public void extentClose()
+        public void ExtentEnd()
 
         {
-          /*  //this will give the test is pass or fail
-            var status = TestContext.CurrentContext.Result.Outcome.Status;
-            //var stackTrace = TestContext.CurrentContext.Result.StackTrace;
-            DateTime time = DateTime.Now;
-            String fileName = "Screenshot_" + time.ToString("h_mm_ss") + ".png";
+                //this will give the test is pass or fail
+                var status = TestContext.CurrentContext.Result.Outcome.Status;
+                var stackTrace = TestContext.CurrentContext.Result.StackTrace;
+                DateTime time = DateTime.Now;
+                String fileName = "Screenshot_" + time.ToString("h_mm_ss") + ".png";
 
-            if (status == TestStatus.Failed)
-            {
-
-                test.Fail("Test failed", takeScreenShot(driver, fileName));
-                //test.Log(Status.Fail, "test failed with logtrace" + stackTrace);
+                if (status == TestStatus.Failed)
+                {
+                 test.Fail("Test failed", takeScreenShot(driver.Value, fileName));
+                 test.Log(Status.Fail, "test failed with logtrace" + stackTrace);
                 //all the failure o/p stack stored in the log file
-                test.Log(Status.Fail,"Test Fail");
-            }
-            else if (status == TestStatus.Passed)
-            {
-                
-            }*/
-
+                }
+                else if (status == TestStatus.Passed)
+                {
+                    test.Pass("Test is passed");
+                }
             extent.Flush();
             //It releases all the objects & it will freshly create next time when  u run ur whole framework
         }

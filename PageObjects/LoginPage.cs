@@ -22,24 +22,24 @@ namespace Amazon.PageObjects
              this.driver = driver;
             }
 
-        public void pointerMoveOnsignIn()
+        public void PointerMoveOnSignIn()
         {
             Actions a = new Actions(driver);
             a.MoveToElement(driver.FindElement(action)).Click().Perform();
         }
-        public void amazonuserName(String user)
+        public void AmazonUserName(String user)
         {
             driver.FindElement(userName).SendKeys(user);
         }
-        public void clickOnContinue()
+        public void ClickOnContinue()
         {
             driver.FindElement(clickoncontinue).Click();
         }
-        public void amazonPassword(String pass)
+        public void AmazonPassword(String pass)
         {
             driver.FindElement(password).SendKeys(pass);
         }
-        public void clickOnSigninButton()
+        public void ClickOnSigninButton()
         {
             driver.FindElement(signinButton).Click();
         }

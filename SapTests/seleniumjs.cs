@@ -13,17 +13,18 @@ namespace Amazon.SapTests
     [Parallelizable(ParallelScope.Self)]
     public  class seleniumjs
     {
-        public IWebDriver driver;
-        //public ThreadLocal<IWebDriver> driver = new ThreadLocal<IWebDriver>();
+        //public IWebDriver driver;
+        public ThreadLocal<IWebDriver> driver = new ThreadLocal<IWebDriver>();
+
         [SetUp]
-        public void oprnBrowser()
+        public void openBrowser()
 
         {
             new WebDriverManager.DriverManager().SetUpDriver(new ChromeConfig());
-            driver = new ChromeDriver();
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
-            driver.Manage().Window.Maximize();
-            driver.Url = "https://rahulshettyacademy.com/AutomationPractice/";
+            driver.Value = new ChromeDriver();
+            driver.Value.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
+            driver.Value.Manage().Window.Maximize();
+            driver.Value.Url = "https://rahulshettyacademy.com/AutomationPractice/";
 
         }
 
@@ -31,12 +32,12 @@ namespace Amazon.SapTests
         
         public void JsDemo()
         {
-            IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
+            IJavaScriptExecutor js = (IJavaScriptExecutor)driver.Value;
             js.ExecuteScript("window.scrollBy(0,500);");
             Thread.Sleep(3000);
             js.ExecuteScript("document.querySelector('.tableFixHead').scrollTop=5000");
 
-            IList<IWebElement> values =  driver.FindElements(By.CssSelector(".tableFixHead td:nth-child(4)"));
+            IList<IWebElement> values =  driver.Value.FindElements(By.CssSelector(".tableFixHead td:nth-child(4)"));
 
             int sum = 0;
             for(int i = 0; i < values.Count; i++)
@@ -47,22 +48,22 @@ namespace Amazon.SapTests
             Console.WriteLine(sum);
             //parsing String and compareing with generated value of sum
             //String  s = driver.FindElement(By.CssSelector(".totalAmount")).Text;
-            int total = Int32.Parse(driver.FindElement(By.CssSelector(".totalAmount")).Text.Split(":")[1].Trim());
+            int total = Int32.Parse(driver.Value.FindElement(By.CssSelector(".totalAmount")).Text.Split(":")[1].Trim());
             Assert.AreEqual(sum, total);
         }
 
         [Test]
         public void printstheRowsandColumn()
         {
-            IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
-            js.ExecuteScript("window.scrollBy(0,400);");
+            IJavaScriptExecutor js = (IJavaScriptExecutor)driver.Value;
+            js.ExecuteScript("window.scrollBy(0,500);");
 
-            IWebElement table = driver.FindElement(By.CssSelector("#product"));
+            IWebElement table = driver.Value.FindElement(By.CssSelector("#product"));
             Console.WriteLine(table.FindElements(By.TagName("tr")).Count);
 
             Console.WriteLine(table.FindElements(By.TagName("tr"))[0].FindElements(By.TagName("th")).Count);
 
-            IList<IWebElement> secondrow = driver.FindElements(By.TagName("tr"))[2].FindElements(By.TagName("td"));
+            IList<IWebElement> secondrow = driver.Value.FindElements(By.TagName("tr"))[2].FindElements(By.TagName("td"));
             Console.WriteLine(secondrow[0].Text);
             Console.WriteLine(secondrow[1].Text);
             Console.WriteLine(secondrow[2].Text);
@@ -71,7 +72,7 @@ namespace Amazon.SapTests
         [TearDown]
         public void closeBrowser()
         {
-            driver.Quit();
+            driver.Value.Quit();
         }
     }
 }
