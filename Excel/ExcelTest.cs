@@ -4,6 +4,7 @@ using NPOI.XSSF.UserModel;
 using NUnit.Framework;
 using System;
 using System.IO;
+using System.Xml.Linq;
 
 namespace SapExcel
 {
@@ -40,11 +41,59 @@ namespace SapExcel
                         case CellType.Numeric: TestContext.Progress.Write(cell.NumericCellValue); break;
                         case CellType.Boolean: TestContext.Progress.Write(cell.BooleanCellValue); break;
                     }
-                    TestContext.Progress.Write(" | ");
-
+                 
                 }
-                TestContext.Progress.WriteLine();
+                
             }
+            TestContext.Progress.WriteLine();
+
+        }
+
+
+        [Test]
+        //workBook-->sheet-->Rows-->Cells
+        public void WritingExcel()
+        {
+            XSSFWorkbook workbook = new XSSFWorkbook();
+            ISheet sheet = workbook.CreateSheet("Emp Info");
+
+           dynamic[,] empdata = new dynamic[4,3]
+           {
+             {"EmpId","Name","Job"},
+             {101,"shashvat","Engineer"},
+             {102,"Ashwat","Manager"},
+             {103,"Sachin","Analyst"}
+           };
+            TestContext.Progress.WriteLine(empdata[3, 2]);
+            TestContext.Progress.WriteLine(empdata.Rank);
+            int rows = empdata.GetLength(0);//it will return no of rows in the particular 2D
+            TestContext.Progress.WriteLine(rows);
+            int cols = empdata.GetLength(1); 
+            TestContext.Progress.WriteLine(cols);
+            
+            for(int r = 0; r < rows; r++)
+             {
+                 IRow  row = sheet.CreateRow(r);
+                 for(int c=0;c<cols;c++)
+                 {
+                     ICell cell = row.CreateCell(c);
+                     Object value  = empdata[r,c];
+
+                     if (value is string)
+                         cell.SetCellValue((string)value);
+                     if (value is double)
+                         cell.SetCellValue((double)value);
+                     if (value is Boolean)
+                         cell.SetCellValue((Boolean)value);
+                     if (value is Int32)
+                         cell.SetCellValue((Int32)value);
+                 }
+             }
+            String filePath = @"G:\SeleniumAutomationCsharp\Sapc1234\AmazonCSharpSharan\Excel\emp.xlsx";
+            FileStream fo = new FileStream(filePath, FileMode.Create);
+            workbook.Write(fo);
+            fo.Close();
+
         }
 
         [Test]
