@@ -69,7 +69,7 @@ namespace Amazon.SapTests
         }
 
         [Test]
-        public void dynamicDropdowns()
+        public void DynamicDropdowns()
 
         {
             //a[@value='AMD']

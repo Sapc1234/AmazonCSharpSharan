@@ -24,15 +24,12 @@ namespace Amazon.PageObjects
         {
             IWebElement selectDropDown = driver.FindElement(static_Dropdown);
             SelectElement se = new SelectElement(selectDropDown);
-
             ArrayList actualDropdownValues = new ArrayList();
             foreach (IWebElement element in se.Options)
             {
-         
                 TestContext.Progress.WriteLine(element.Text);
                 actualDropdownValues.Add(element.Text);
             }
-
             ArrayList expectedDropdownValues = new ArrayList();
             expectedDropdownValues.Add("All Categories");
             expectedDropdownValues.Add("Alexa Skills");
@@ -83,7 +80,6 @@ namespace Amazon.PageObjects
                 TestContext.Progress.WriteLine("Actual :" + actualDropdownValues[i] + " &Expected :" + expectedDropdownValues[i]);
                 Assert.IsTrue(actualDropdownValues[i].Equals(expectedDropdownValues[i]));
             }
-
         }
     }
 }
