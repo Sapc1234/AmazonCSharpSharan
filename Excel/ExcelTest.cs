@@ -57,17 +57,17 @@ namespace SapExcel
             XSSFWorkbook workbook = new XSSFWorkbook();
             ISheet sheet = workbook.CreateSheet("Emp Info");
 
-           dynamic[,] empdata = new dynamic[4,3]
-           {
+
+            dynamic[,] empdata = {
              {"EmpId","Name","Job"},
              {101,"shashvat","Engineer"},
              {102,"Ashwat","Manager"},
              {103,"Sachin","Analyst"}
            };
-            TestContext.Progress.WriteLine(empdata[3, 2]);
+            TestContext.Progress.WriteLine(empdata[3,2]);
             TestContext.Progress.WriteLine(empdata.Rank);
             int rows = empdata.GetLength(0);//it will return no of rows in the particular 2D
-            TestContext.Progress.WriteLine(rows);
+            TestContext.Progress.WriteLine(rows);//4
             int cols = empdata.GetLength(1); 
             TestContext.Progress.WriteLine(cols);
             

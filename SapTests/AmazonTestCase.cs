@@ -1,4 +1,4 @@
-using Amazon.PageObjects;
+﻿using Amazon.PageObjects;
 using Amazon.utilities;
 using AventStack.ExtentReports;
 using NUnit.Framework;
@@ -8,7 +8,9 @@ using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.UI;
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using WebDriverManager.DriverConfigs.Impl;
 
 namespace Amazon
@@ -34,7 +36,7 @@ namespace Amazon
                 lp.ClickOnSigninButton();
                 test.Log(Status.Info, "Click On SignIn Button");
                 var actualName = driver.Value.FindElement(By.XPath("//div[@class='nav-line-1-container']/span[@id='nav-link-accountList-nav-line-1']"));
-                Assert.AreEqual("Hello, sharan", actualName.Text);
+                Assert.That(actualName.Text, Is.EqualTo("Hello, sharan"));
         }
 
         [Test, Order(2)]
@@ -48,7 +50,7 @@ namespace Amazon
                 String atext = ps.getText().Text;
                 String[] splittedText = atext.Split("(");
                 String trimmedAText = splittedText[0].Trim();
-                Assert.AreEqual("Samsung Galaxy M53 5G", trimmedAText);
+                Assert.That(trimmedAText, Is.EqualTo("Samsung Galaxy M53 5G"));
         }
        
         [Test, Order(3)]
@@ -64,16 +66,16 @@ namespace Amazon
                 pd.ClickOnAddToCart();
                 test.Log(Status.Info, "Items added into the cart ");
                 driver.Value.SwitchTo().Window(parentWindow);
-                Assert.AreEqual(2, driver.Value.WindowHandles.Count);
+                Assert.That(driver.Value.WindowHandles.Count, Is.EqualTo(2));
         }
 
         [Test, Order(4)]
         public void Varify_Amazon_User_Able_To_Navigate_The_CartPage()
-        {  
+        {       
                 NavigationPage np = new NavigationPage(getDriver());
-                np.backToCart();
+                np.BackToCart();
                 test.Log(Status.Info, "pointer clickon AmazonLogo");
-                np.footer();
+                np.Footer();
                 test.Log(Status.Info, "webPage scrollDown Successfully");
                 Assert.IsTrue(driver.Value.FindElement(By.CssSelector("a[id='nav-cart']")).Enabled);
         }
@@ -88,7 +90,17 @@ namespace Amazon
                 Assert.IsTrue(driver.Value.FindElement(By.XPath("//div[@class='a-radio a-radio-fancy']/label/input[@value='kn_IN']")).Selected);
         }
 
-        [Test, Order(6)]
+        [Test,Order(6)]
+
+        public void Varify_Amazon_User_Able_To_Use_All_Search_DropDowns()
+
+        {
+            AmazonHomePage ahp = new AmazonHomePage(getDriver());
+            ahp.DropDowns();
+            test.Log(Status.Info, "All search dropdown is working successfully");
+        }
+
+        [Test, Order(7)]
         public void Varify_Amazon_User_Able_To_Click_On_SignOut_Button()
         {
             LogoutPage lo = new LogoutPage(getDriver());

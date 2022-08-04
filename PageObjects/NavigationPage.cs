@@ -22,7 +22,7 @@ namespace Amazon.PageObjects
             this.driver = driver;
         }
         
-        public void backToCart()
+        public void BackToCart()
         {
             Thread.Sleep(3000);
             driver.FindElement(homePageCart).Click();
@@ -30,7 +30,7 @@ namespace Amazon.PageObjects
             driver.FindElement(clickonAmazonLogo).Click();
         }
 
-        public void footer()
+        public void Footer()
         {
             IWebElement cs = driver.FindElement(cScroll);
             IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
