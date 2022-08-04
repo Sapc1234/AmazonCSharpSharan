@@ -80,7 +80,7 @@ namespace Amazon.SapTests
             Thread.Sleep(2000);
             driver.Value.FindElement(By.XPath("//div[@id='glsctl00_mainContent_ddl_destinationStation1_CTNR']//a[@value='BLR']")).Click();
 
-            driver.Value.FindElement(By.CssSelector(".ui-state-default.ui-state-highlight")).Click();
+            //driver.Value.FindElement(By.CssSelector(".ui-state-default.ui-state-highlight")).Click();
             
             
             TestContext.Progress.WriteLine(driver.Value.FindElement(By.Id("Div1")).GetAttribute("style"));
@@ -161,7 +161,7 @@ namespace Amazon.SapTests
             driver.Value.FindElement(By.XPath("//div[@id='glsctl00_mainContent_ddl_destinationStation1_CTNR']//a[@value='BLR']")).Click();
 
             //journeyDate
-            driver.Value.FindElement(By.CssSelector(".ui-state-default.ui-state-highlight")).Click();
+           // driver.Value.FindElement(By.CssSelector(".ui-state-default.ui-state-highlight")).Click();
 
             //updatedDropdowns
             driver.Value.FindElement(By.XPath("//div[@id='divpaxinfo']")).Click();

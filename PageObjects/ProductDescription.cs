@@ -34,7 +34,7 @@ namespace Amazon.PageObjects
             Thread.Sleep(4000);
             IWebElement staticdropDown = driver.FindElement(selectquantity);
             SelectElement sd = new SelectElement(staticdropDown);
-            sd.SelectByValue("3");
+            sd.SelectByValue("2");
         }
        
         public void ClickOnAddToCart()

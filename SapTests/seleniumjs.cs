@@ -17,7 +17,7 @@ namespace Amazon.SapTests
         public ThreadLocal<IWebDriver> driver = new ThreadLocal<IWebDriver>();
 
         [SetUp]
-        public void openBrowser()
+        public void OpenBrowser()
 
         {
             new WebDriverManager.DriverManager().SetUpDriver(new ChromeConfig());
