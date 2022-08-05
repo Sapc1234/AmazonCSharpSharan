@@ -96,7 +96,14 @@ namespace Amazon
 
         {
             AmazonHomePage ahp = new AmazonHomePage(getDriver());
-            ahp.DropDowns();
+            ahp.dropDowns();
+
+         
+            for (int i = 0; i < ahp.getActualDropDown().Count; i++)
+            {
+                TestContext.Progress.WriteLine("Actual :" + ahp.getActualDropDown()[i] + " &Expected :" + ahp.getExpectedDropDown()[i]);
+                Assert.IsTrue(ahp.getActualDropDown()[i].Equals(ahp.getExpectedDropDown()[i]));
+            }
             test.Log(Status.Info, "All search dropdown is working successfully");
         }
 
