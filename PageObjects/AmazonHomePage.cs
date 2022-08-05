@@ -11,26 +11,22 @@ namespace Amazon.PageObjects
     public class AmazonHomePage
     {
         private By static_Dropdown = By.XPath("//select[contains(@class,'nav-search-dropdown')]");
-       
-
+        private  ArrayList actualDropdownValues = new ArrayList();
+        private  ArrayList expectedDropdownValues = new ArrayList();
         private IWebDriver driver;
         public AmazonHomePage(IWebDriver driver)
         {
             this.driver = driver;
         }
-
-        public void DropDowns()
-
+        public void dropDowns()
         {
             IWebElement selectDropDown = driver.FindElement(static_Dropdown);
             SelectElement se = new SelectElement(selectDropDown);
-            ArrayList actualDropdownValues = new ArrayList();
             foreach (IWebElement element in se.Options)
             {
                 TestContext.Progress.WriteLine(element.Text);
                 actualDropdownValues.Add(element.Text);
             }
-            ArrayList expectedDropdownValues = new ArrayList();
             expectedDropdownValues.Add("All Categories");
             expectedDropdownValues.Add("Alexa Skills");
             expectedDropdownValues.Add("Amazon Devices");
@@ -74,12 +70,16 @@ namespace Amazon.PageObjects
             expectedDropdownValues.Add("Under ₹500");
             expectedDropdownValues.Add("Video Games");
             expectedDropdownValues.Add("Watches");
+        }
 
-            for (int i = 0; i < actualDropdownValues.Count; i++)
-            {
-                TestContext.Progress.WriteLine("Actual :" + actualDropdownValues[i] + " &Expected :" + expectedDropdownValues[i]);
-                Assert.IsTrue(actualDropdownValues[i].Equals(expectedDropdownValues[i]));
-            }
+        public ArrayList getActualDropDown()
+        {
+            return actualDropdownValues;
+        }
+
+        public ArrayList getExpectedDropDown()
+        {
+            return expectedDropdownValues;
         }
     }
 }
