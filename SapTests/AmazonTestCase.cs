@@ -18,11 +18,14 @@ namespace Amazon
     [Parallelizable(ParallelScope.Self)]
     public class Tests : Base
     {
-        [Test, Order(1)]
-        [TestCase("sapadashetty2110@gmail.com", "Sapc@1234")]
+
+        [Test, Order(1), TestCaseSource("AddTestDataConfig")]
+        //[TestCase("sapadashetty2110@gmail.com", "Sapc@1234")]
         //[TestCase("sapdashetty2110@gmail.com","Sapc@5678")]
-        
+        //[TestCase("sapadashetty2110@gmail.com", "Sapc@1234")]
        
+        
+      // [TestCaseSource("AddTestDataConfig")]
         public void Varify_Login_Functionality_Of_LoginPage(String UsrName, String Password)
         {
                 LoginPage lp = new LoginPage(getDriver());
@@ -73,7 +76,9 @@ namespace Amazon
         public void Varify_Amazon_User_Able_To_Navigate_The_CartPage()
         {       
                 NavigationPage np = new NavigationPage(getDriver());
-                np.BackToCart();
+                np.BackToCart_and_clickOn_Save_For_later();
+                test.Log(Status.Info, "Click on save for later successfully");
+                np.navigateToAmazonLogo();
                 test.Log(Status.Info, "pointer clickon AmazonLogo");
                 np.Footer();
                 test.Log(Status.Info, "webPage scrollDown Successfully");
@@ -113,6 +118,13 @@ namespace Amazon
             LogoutPage lo = new LogoutPage(getDriver());
             lo.pointerMovesHoverAccountandList();
             test.Log(Status.Info, "Click On SignOut Button Successfully");
+        }
+
+        public static IEnumerable<TestCaseData> AddTestDataConfig()
+        {
+         
+         //iEnumerable which is used to collect the data
+         yield return new TestCaseData("sapadashetty2110@gmail.com","Sapc@1234");
         }
     }
 }

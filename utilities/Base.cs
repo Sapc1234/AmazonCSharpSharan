@@ -53,8 +53,8 @@ namespace Amazon.utilities
         [OneTimeSetUp]
         public void StartBrowser()
         {
-            String BrowserName = ConfigurationManager.AppSettings["browser"];
-            InitBrowser(BrowserName);
+            String browserName = ConfigurationManager.AppSettings["browser"];
+            InitBrowser(browserName);
             //InitBrowser("chrome");
             driver.Value.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
             driver.Value.Manage().Window.Maximize();
@@ -75,7 +75,7 @@ namespace Amazon.utilities
             Assert.IsTrue(driver.Value.Url.Contains("amazon"));
 
         }
-        public  IWebDriver getDriver()
+        public IWebDriver getDriver()
         {
             return driver.Value;
         }
