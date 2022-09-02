@@ -26,10 +26,10 @@ namespace SapExcel
 
             int cols = sheet.GetRow(1).LastCellNum;// i want to find number of cells in the particular row
 
-            for(int r=0;r<=rows;r++)//outer loop reprenting rows in excel
+            for(int r=0;r<=rows;r++)//outer loop representing rows in excel
             {
                 IRow row = sheet.GetRow(r); //return the row object
-                for (int c=0;c<cols;c++) //inner loop reprenting cells in a each row
+                for (int c=0;c<cols;c++) //inner loop representing cells in a each row
                 {
                     ICell cell = row.GetCell(c);//this method will return cell object
                     //how to extract the data from cell object

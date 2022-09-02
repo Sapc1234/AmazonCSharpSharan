@@ -14,6 +14,7 @@ namespace Amazon.PageObjects
         private By clickonAmazonLogo = By.XPath("//div[@id='nav-logo']/a");
         private By cScroll = By.XPath("//div[@class='navFooterLine']");
         private By selectLang = By.XPath("//a[@id='icp-touch-link-language']");
+        private By clickOnsaveforlater = By.XPath("//input[@value='Save for later']");
 
         private IWebDriver driver;
         
@@ -22,10 +23,17 @@ namespace Amazon.PageObjects
             this.driver = driver;
         }
         
-        public void BackToCart()
+        public void BackToCart_and_clickOn_Save_For_later()
         {
             Thread.Sleep(3000);
             driver.FindElement(homePageCart).Click();
+            Thread.Sleep(3000);
+            driver.FindElement(clickOnsaveforlater).Click();
+           
+        }
+
+        public void navigateToAmazonLogo()
+        {
             Thread.Sleep(3000);
             driver.FindElement(clickonAmazonLogo).Click();
         }
