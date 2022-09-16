@@ -96,12 +96,10 @@ namespace Amazon
         [Test,Order(6)]
 
         public void Varify_Amazon_User_Able_To_Use_All_Search_DropDowns()
-
         {
             AmazonHomePage ahp = new AmazonHomePage(getDriver());
             ahp.dropDowns();
 
-         
             for (int i = 0; i < ahp.getActualDropDown().Count; i++)
             {
                 TestContext.Progress.WriteLine("Actual :" + ahp.getActualDropDown()[i] + " &Expected :" + ahp.getExpectedDropDown()[i]);
