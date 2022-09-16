@@ -64,7 +64,7 @@ namespace Amazon.SapTests
                 Thread.Sleep(2000);
             }
             driver.Value.FindElement(By.XPath("//input[@id='btnclosepaxoption']")).Click();
-            Assert.AreEqual(driver.Value.FindElement(By.XPath("//div[@id='divpaxinfo']")).Text,"5 Adult");
+            Assert.AreEqual(driver.Value.FindElement(By.XPath("//div[@id='divpaxinfo']")).Text,"4 Adult");
             TestContext.Progress.WriteLine(driver.Value.FindElement(By.XPath("//div[@id='divpaxinfo']")).Text);
         }
 
@@ -169,6 +169,7 @@ namespace Amazon.SapTests
 
             for(int i=1;i<5;i++)
             {
+                Thread.Sleep(2000);
                 driver.Value.FindElement(By.XPath("//span[@id='hrefIncAdt']")).Click();
                 Thread.Sleep(2000);
             }

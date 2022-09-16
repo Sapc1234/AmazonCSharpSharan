@@ -13,7 +13,7 @@ namespace SapExcel
         [Test]
         public void ReadingTheDataFromExcel()
         {
-            string path = @"G:\SeleniumAutomationCsharp\Sapc1234\AmazonCSharpSharan\ExcelData.xlsx";
+            string path = @"G:\SeleniumAutomationCsharp\Sapc1234\AmazonCSharpSharan\Resources\ExcelData.xlsx";
             FileStream fs = new FileStream(path, FileMode.Open, FileAccess.Read);
             XSSFWorkbook workbook = new XSSFWorkbook(fs);
 
@@ -99,7 +99,7 @@ namespace SapExcel
         [Test]
         public void ReadExcel()
         {
-            string path = @"G:\SeleniumAutomationCsharp\Sapc1234\AmazonCSharpSharan\ExcelData.xlsx";
+            string path = @"G:\SeleniumAutomationCsharp\Sapc1234\AmazonCSharpSharan\Resources\ExcelData.xlsx";
             FileStream file = new FileStream(path, FileMode.Open, FileAccess.Read);
             XSSFWorkbook workbook = new XSSFWorkbook(file);
             var sheet = workbook.GetSheetAt(0);
