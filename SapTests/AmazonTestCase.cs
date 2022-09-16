@@ -19,13 +19,11 @@ namespace Amazon
     public class Tests : Base
     {
 
-        [Test, Order(1), TestCaseSource("AddTestDataConfig")]
+          [Test, Order(1), TestCaseSource("AddTestDataConfig")]
         //[TestCase("sapadashetty2110@gmail.com", "Sapc@1234")]
         //[TestCase("sapdashetty2110@gmail.com","Sapc@5678")]
         //[TestCase("sapadashetty2110@gmail.com", "Sapc@1234")]
-       
-        
-      // [TestCaseSource("AddTestDataConfig")]
+        // [TestCaseSource("AddTestDataConfig")]
         public void Varify_Login_Functionality_Of_LoginPage(String UsrName, String Password)
         {
                 LoginPage lp = new LoginPage(getDriver());
@@ -124,7 +122,9 @@ namespace Amazon
         {
          
          //iEnumerable which is used to collect the data
-         yield return new TestCaseData("sapadashetty2110@gmail.com","Sapc@1234");
+         //yield will wait untill all the returns have been succesfully completed
+         //yield return new TestCaseData("sapadashetty2110@gmail.com","Sapc@1234");
+           yield return new TestCaseData(getDataParser().extractData("Usrname"), getDataParser().extractData("Password"));
         }
     }
 }

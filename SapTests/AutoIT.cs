@@ -46,6 +46,7 @@ namespace Amazon.SapTests
             driver.Value.Url = "https://www.ilovepdf.com/jpg_to_pdf";
             driver.Value.FindElement(By.XPath("//div[@id='uploader']/a[@id='pickfiles']/span")).Click();
             //now we need to call the .exe file
+            
             Thread.Sleep(3000);
 
             //ProcessStartInfo pi = new ProcessStartInfo();
@@ -54,7 +55,7 @@ namespace Amazon.SapTests
 
             var pi = new ProcessStartInfo()
             {
-                FileName = @"G:\SeleniumAutomationCsharp\Sapc1234\AmazonCSharpSharan\Resources\fileUploadautoit.exe"
+                FileName = @"G:\SeleniumAutomationCsharp\Sapc1234\AmazonCSharpSharan\Resources\AutoItFile.exe"
             };
            
             
