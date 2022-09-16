@@ -10,7 +10,9 @@ trigger:
 - main
 
 pool:
-  vmImage: 'windows-latest'
+  vmImage: - task: DotNetCoreCLI@2
+  inputs:
+    command: 'test'
 
 variables:
   solution: '**/*.sln'
