@@ -27,7 +27,8 @@ namespace Amazon.utilities
         //public IWebDriver driver;
         public ThreadLocal<IWebDriver> driver = new ThreadLocal<IWebDriver>();
         //threadLocal class maintain all drivers 
-        [OneTimeSetUp]
+       
+         [OneTimeSetUp]
         public void ExtentStart()
 
         {
@@ -123,6 +124,11 @@ namespace Amazon.utilities
                 }
             extent.Flush();
             //It releases all the objects & it will freshly create next time when  u run ur whole framework
+        }
+
+        public static jsonReader getDataParser()
+        {
+            return new jsonReader();
         }
        
         [OneTimeTearDown]
