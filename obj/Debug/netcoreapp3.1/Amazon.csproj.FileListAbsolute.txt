@@ -531,7 +531,4 @@ G:\SeleniumAutomationCsharp\Sapc1234\AmazonCSharpSharan\bin\Debug\netcoreapp3.1\
 G:\SeleniumAutomationCsharp\Sapc1234\AmazonCSharpSharan\bin\Debug\netcoreapp3.1\SpecFlow.Assist.Dynamic.dll
 G:\SeleniumAutomationCsharp\Sapc1234\AmazonCSharpSharan\bin\Debug\netcoreapp3.1\Resources\ExcelData.xlsx
 G:\SeleniumAutomationCsharp\Sapc1234\AmazonCSharpSharan\bin\Debug\netcoreapp3.1\Resources\NPTEL.jpeg
-G:\SeleniumAutomationCsharp\Sapc1234\AmazonCSharpSharan\bin\Debug\netcoreapp3.1\utilities\Base.cs
-G:\SeleniumAutomationCsharp\Sapc1234\AmazonCSharpSharan\bin\Debug\netcoreapp3.1\utilities\jsonReader.cs
-G:\SeleniumAutomationCsharp\Sapc1234\AmazonCSharpSharan\bin\Debug\netcoreapp3.1\utilities\TestData.json
-G:\SeleniumAutomationCsharp\Sapc1234\AmazonCSharpSharan\bin\Debug\netcoreapp3.1\SapTests\AutoIT.cs
+G:\SeleniumAutomationCsharp\Sapc1234\AmazonCSharpSharan\bin\Debug\netcoreapp3.1\Resources\fileUploadautoit.exe
