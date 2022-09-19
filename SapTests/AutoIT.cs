@@ -49,19 +49,11 @@ namespace Amazon.SapTests
             
             Thread.Sleep(3000);
 
-            //ProcessStartInfo pi = new ProcessStartInfo();
+            ProcessStartInfo pi = new ProcessStartInfo();
             //ProcessStartInfo method will trigger our execution
-            //pi.FileName = @"G:\SeleniumAutomationCsharp\Sapc1234\AmazonCSharpSharan\fileUploadautoit.exe";
+            pi.FileName = @"G:\SeleniumAutomationCsharp\Sapc1234\AmazonCSharpSharan\Resources\AutoItFile.exe";
 
-            var pi = new ProcessStartInfo()
-            {
-<<<<<<< HEAD
-                FileName = @"G:\SeleniumAutomationCsharp\Sapc1234\AmazonCSharpSharan\Resources\fileUploadautoit.exe"
-
-=======
-                FileName = @"G:\SeleniumAutomationCsharp\Sapc1234\AmazonCSharpSharan\Resources\AutoItFile.exe"
->>>>>>> c9abaa0408d631389b2e14fac898d8f41ca7960a
-            };
+          
 
 
 
