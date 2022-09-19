@@ -15,7 +15,7 @@ namespace Amazon.utilities
         }
         public string extractData(String tokenName)
         {
-            var myJsonString = File.ReadAllText("utilities/TestData.json");
+            var myJsonString = File.ReadAllText(@"G:\SeleniumAutomationCsharp\Sapc1234\AmazonCSharpSharan\utilities\TestData.json");
             var jsonobject = JToken.Parse(myJsonString);
             //Console.WriteLine(jsonobject.SelectToken("Usrname").Value<string>());
             return jsonobject.SelectToken(tokenName).Value<string>();

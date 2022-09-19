@@ -158,21 +158,30 @@ namespace Amazon.SapTests
             driver.Value.FindElement(By.XPath("//div[@id='glsctl00_mainContent_ddl_destinationStation1_CTNR']//a[@value='BLR']")).Click();
 
             //journeyDate
-           // driver.Value.FindElement(By.CssSelector(".ui-state-default.ui-state-highlight")).Click();
+            // driver.Value.FindElement(By.CssSelector(".ui-state-default.ui-state-highlight")).Click();
 
             //updatedDropdowns
             driver.Value.FindElement(By.XPath("//div[@id='divpaxinfo']")).Click();
             Thread.Sleep(2000);
 
-            for(int i=1;i<5;i++)
+            /*for(int i=1;i<5;i++)
             {
                 Thread.Sleep(2000);
                 driver.Value.FindElement(By.XPath("//span[@id='hrefIncAdt']")).Click();
                 Thread.Sleep(2000);
+            }*/
+
+            int j = 1;
+            while (j < 4)
+            {
+                driver.Value.FindElement(By.XPath("//span[@id='hrefIncAdt']")).Click();
+                j++;
+                Thread.Sleep(2000);
             }
             driver.Value.FindElement(By.XPath("//input[@id='btnclosepaxoption']")).Click();
-            Assert.AreEqual(driver.Value.FindElement(By.XPath("//div[@id='divpaxinfo']")).Text, "5 Adult");
+            Assert.AreEqual(driver.Value.FindElement(By.XPath("//div[@id='divpaxinfo']")).Text, "4 Adult");
             TestContext.Progress.WriteLine(driver.Value.FindElement(By.XPath("//div[@id='divpaxinfo']")).Text);
+          
 
             IWebElement sd = driver.Value.FindElement(By.Id("ctl00_mainContent_DropDownListCurrency"));
             SelectElement dd = new SelectElement(sd);
