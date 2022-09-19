@@ -30,7 +30,6 @@ namespace Amazon.SapTests
 
         [Test]
         public void selectDropdowns()
-
         {
             IWebElement sd = driver.Value.FindElement(By.Id("ctl00_mainContent_DropDownListCurrency"));
             SelectElement dd = new SelectElement(sd);
@@ -70,7 +69,6 @@ namespace Amazon.SapTests
 
         [Test]
         public void DynamicDropdowns()
-
         {
             //a[@value='AMD']
             //div[@id='glsctl00_mainContent_ddl_destinationStation1_CTNR']//a[@value='BLR']
@@ -101,7 +99,6 @@ namespace Amazon.SapTests
                 TestContext.Progress.WriteLine("is disabled");
                 Assert.IsTrue(false);
             }
-
 
         }
 
