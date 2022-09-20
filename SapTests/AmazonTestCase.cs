@@ -24,11 +24,11 @@ namespace Amazon
         //[TestCase("sapdashetty2110@gmail.com","Sapc@5678")]
         //[TestCase("sapadashetty2110@gmail.com", "Sapc@1234")]
         // [TestCaseSource("AddTestDataConfig")]
-        public void Varify_Login_Functionality_Of_LoginPage(String UsrName, String Password)
+        public void Varify_Login_Functionality_Of_LoginPage(String Usrname, String Password)
         {
                 LoginPage lp = new LoginPage(getDriver());
                 lp.PointerMoveOnSignIn();
-                lp.AmazonUserName(UsrName);
+                lp.AmazonUserName(Usrname);
                 test.Log(Status.Info, "UserName is Entered");
                 lp.ClickOnContinue();
                 test.Log(Status.Info, "Click On Continue Button");
