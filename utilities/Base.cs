@@ -87,17 +87,23 @@ namespace Amazon.utilities
             {
                 case "Firefox":
                     new WebDriverManager.DriverManager().SetUpDriver(new FirefoxConfig());
-                    driver.Value = new FirefoxDriver();
+                    FirefoxOptions fo = new FirefoxOptions();   
+                    fo.AcceptInsecureCertificates = true;
+                    driver.Value = new FirefoxDriver(fo);
                     break;
 
                 case "Chrome":
                     new WebDriverManager.DriverManager().SetUpDriver(new ChromeConfig());
-                    driver.Value = new ChromeDriver();
+                    ChromeOptions ch = new ChromeOptions();
+                    ch.AcceptInsecureCertificates = true;
+                    driver.Value = new ChromeDriver(ch);
                     break;
 
                 case "Edge":
                     new WebDriverManager.DriverManager().SetUpDriver(new EdgeConfig());
-                    driver.Value = new EdgeDriver();
+                    EdgeOptions eo = new EdgeOptions();
+                    eo.AcceptInsecureCertificates = true;
+                    driver.Value = new EdgeDriver(eo);
                     break;
             }
         }
