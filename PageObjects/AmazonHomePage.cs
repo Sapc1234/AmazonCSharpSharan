@@ -61,6 +61,7 @@ namespace Amazon.PageObjects
             expectedDropdownValues.Add("Office Products");
             expectedDropdownValues.Add("Pet Supplies");
             expectedDropdownValues.Add("Prime Video");
+            expectedDropdownValues.Add("Same-Day Delivery");
             expectedDropdownValues.Add("Shoes & Handbags");
             expectedDropdownValues.Add("Software");
             expectedDropdownValues.Add("Sports, Fitness & Outdoors");

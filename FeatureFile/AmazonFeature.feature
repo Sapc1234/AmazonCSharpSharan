@@ -25,6 +25,6 @@ Then Check Amazon Account is successfully signOut or not
 
 Examples: 
 | username                   | password  | ProductName           |
-| sapadashetty2110@gmail.com | Sapc@1234 | Samsung Galaxy M53 5G |
+| sapadashetty2110@gmail.com | Sapc@1478 | Samsung Galaxy M53 5G |
 
 

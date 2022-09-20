@@ -84,7 +84,7 @@ testRunner.Given("I landed on Amazon Website", ((string)(null)), ((TechTalk.Spec
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Login Amazon Application with valid Credentials and search the product")]
-        [NUnit.Framework.TestCaseAttribute("sapadashetty2110@gmail.com", "Sapc@1234", "Samsung Galaxy M53 5G", null)]
+        [NUnit.Framework.TestCaseAttribute("sapadashetty2110@gmail.com", "Sapc@1478", "Samsung Galaxy M53 5G", null)]
         public void LoginAmazonApplicationWithValidCredentialsAndSearchTheProduct(string username, string password, string productName, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
