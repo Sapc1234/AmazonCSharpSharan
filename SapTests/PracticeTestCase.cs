@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Edge;
 using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
@@ -20,8 +21,8 @@ namespace Amazon.SapTests
         public void StartBrowser()
 
         {
-            new WebDriverManager.DriverManager().SetUpDriver(new ChromeConfig());
-            driver.Value = new ChromeDriver();
+            new WebDriverManager.DriverManager().SetUpDriver(new EdgeConfig());
+            driver.Value = new EdgeDriver();
             driver.Value.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
             driver.Value.Manage().Window.Maximize();
             driver.Value.Url = "https://rahulshettyacademy.com/dropdownsPractise/";
