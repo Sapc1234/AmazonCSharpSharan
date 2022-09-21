@@ -22,8 +22,10 @@ namespace Amazon.SapTests
         public void OpenBrowser()
 
         {
-            new WebDriverManager.DriverManager().SetUpDriver(new ChromeConfig());
-            driver.Value = new ChromeDriver();
+            new WebDriverManager.DriverManager().SetUpDriver(new EdgeConfig());
+            EdgeOptions eo = new EdgeOptions();
+            eo.AcceptInsecureCertificates = true;   
+            driver.Value = new EdgeDriver(eo);
             driver.Value.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
             driver.Value.Manage().Window.Maximize();
             
